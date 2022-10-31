@@ -9,7 +9,6 @@ import { Button } from "../../common/Button/index";
 import { DatePickers } from "../Datepickers/index";
 export const Form = () => {
   const [selectData, setSelectData] = useState("");
-  const [data, setData] = useState(null);
   const dispatch = useDispatch();
   const [opemMap, setOpenMap] = useState(false);
 

@@ -26,7 +26,7 @@ export const DatePickers = () => {
   useEffect(() => {
     dispatch(getStartDate(dateFormat(firstDate)));
     dispatch(getStartDate(dateFormat(secondDate)));
-  }, [firstDate, secondDate]);
+  }, [dispatch, firstDate, secondDate]);
 
   const handleFirstDateChange = (newValue: Dayjs | null) => {
     setFirstDate(newValue);
