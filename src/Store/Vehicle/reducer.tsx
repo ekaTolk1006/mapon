@@ -1,15 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { GetRoutes, getVehicleNumber } from "./action";
 
+
+
 type VehicleData = {
-  vehicleData: null;
+  vehicleData: null | any;
   startDate: null;
   endDate: string;
   selectedId: number;
   routes: null;
 };
 
-const initialState = {
+const initialState: VehicleData = {
   vehicleData: null,
   startDate: null,
   endDate: "",
@@ -23,7 +25,6 @@ export const VehicleSlice = createSlice({
   reducers: {
     getStartDate: (state, action) => {
       state.startDate = action.payload;
-      console.log(state.startDate);
     },
     getEndDate: (state, action) => {
       state.endDate = action.payload;
@@ -35,7 +36,6 @@ export const VehicleSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getVehicleNumber.fulfilled, (state, action) => {
       state.vehicleData = action.payload;
-      console.log(state.vehicleData, "data");
     });
 
     builder.addCase(GetRoutes.fulfilled, (state, action) => {
