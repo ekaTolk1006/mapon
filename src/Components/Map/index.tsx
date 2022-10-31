@@ -12,12 +12,11 @@ const center = {
   lng: -38.523,
 };
 
+
 function Map() {
-  const variable = env.REACT_APP_TEST;
-  console.log(variable);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: 'ToDo',
+    googleMapsApiKey: env.REACT_APP_GOOGLE_MAP_API,
   });
 
 

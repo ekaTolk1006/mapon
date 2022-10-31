@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import env from "react-dotenv";
 
 type VehicleDate = {
   startDate: string;
@@ -6,11 +7,13 @@ type VehicleDate = {
   carId: number;
 };
 
+const apiKey = env.REACT_APP_API_KEY;
+
 export const getVehicleNumber: any = createAsyncThunk(
   "Vehicle/getVehicleNumber",
   async () => {
     const responce = await fetch(
-      `https://mapon.com/api/v1/unit/list.json?key=${todo}`,
+      `https://mapon.com/api/v1/unit/list.json?key=${apiKey}`,
       {
         method: "GET",
       }
@@ -29,7 +32,7 @@ export const GetRoutes: any = createAsyncThunk(
   "Vehicle/GetRoutes",
   async ({ startDate, endDate, carId }: VehicleDate) => {
     const responce = await fetch(
-      `https://mapon.com/api/v1/route/list.json?key=${todo}&unit_id=${carId}&from=${startDate}&till=${endDate}`,
+      `https://mapon.com/api/v1/route/list.json?key=${apiKey}&unit_id=${carId}&from=${startDate}&till=${endDate}`,
       {
         method: "GET",
       }
